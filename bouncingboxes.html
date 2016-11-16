@@ -8,42 +8,26 @@
 <script>
 
 let context= myCanvas.getContext("2d");
-
-      let imageObj = new Image();
-       imageObj.src = 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg';
-
-      
-
-     
-
+let imageObj = new Image();
+imageObj.src = 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg';
 let NUM_POINTS = 15; 
 
 const points = [];
-
 for(let i = 0; i < NUM_POINTS; i++) {
-
-  points.push({
-
-    x: Math.random() * myCanvas.width,
-
-    y: Math.random() * myCanvas.height,
-
-    width: Math.random() * 50,
-
-    height: Math.random() * 50,
-
-    dx: 1, 
-    dy: 1, 
-
-    color: 'blue'
-
-  });
-
+points.push({
+x: Math.random() * myCanvas.width,
+y: Math.random() * myCanvas.height,
+width: Math.random() * 50,
+height: Math.random() * 50,
+dx: 1, 
+dy: 1, 
+color: 'blue'
+});
 }
-let init = function()
+
+  let init = function()
 {
-  
-  setInterval(draw,10);
+setInterval(draw,10);
 }
 
 let draw = function()
