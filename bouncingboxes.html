@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bouncing Boxes...</title></head>
+<body onLoad="init();">
+  <canvas id="myCanvas" width="1140" height="550" >
+  </canvas>
+
+<script>
+
+let context= myCanvas.getContext("2d");
+
+      let imageObj = new Image();
+       imageObj.src = 'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg';
+
+      
+
+     
+
+let NUM_POINTS = 15; 
+
+const points = [];
+
+for(let i = 0; i < NUM_POINTS; i++) {
+
+  points.push({
+
+    x: Math.random() * myCanvas.width,
+
+    y: Math.random() * myCanvas.height,
+
+    width: Math.random() * 50,
+
+    height: Math.random() * 50,
+
+    dx: 1, 
+    dy: 1, 
+
+    color: 'blue'
+
+  });
+
+}
+let init = function()
+{
+  
+  setInterval(draw,10);
+}
+
+let draw = function()
+{
+  context.clearRect(0,0, 1140,550); 
+  context.drawImage(imageObj, 0, 0);
+  points.forEach(function(point){
+  context.fillStyle=point.color;
+  context.fillRect(point.x,point.y,point.width, point.height);
+  // Boundary Logic
+if( point.x<0 || point.x>1140-point.width) point.dx=-point.dx; 
+if( point.y<0 || point.y>550-point.height) point.dy=-point.dy; 
+point.x+=point.dx; 
+point.y+=point.dy;
+});
+}
+
+
+</script>
+</body>
+</html>
